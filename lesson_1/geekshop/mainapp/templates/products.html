@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-	Каталог
+	{% include 'inc/inc_title_dyn.html' %}
 {% endblock %}
 {% block css %}
   <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
