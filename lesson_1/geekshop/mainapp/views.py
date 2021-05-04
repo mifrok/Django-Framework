@@ -3,9 +3,9 @@ from django.shortcuts import render
 # title = [{'index': 'Магазин'},
 #          {'products': 'Каталог'},
 #          {'contact': 'Контакты'}]
-links = [{'href': 'index', 'title': 'Магазин'},
-        {'href': 'products', 'title': 'Каталог'},
-        {'href': 'contacts', 'title': 'Контакты'}]
+links = [{'href': 'index', 'title': 'Магазин', 'menu': 'домой'},
+        {'href': 'products', 'title': 'Каталог', 'menu': 'продукты'},
+        {'href': 'contacts', 'title': 'Контакты', 'menu': 'контакты'}]
 content = {
     'titles': links,
 }
