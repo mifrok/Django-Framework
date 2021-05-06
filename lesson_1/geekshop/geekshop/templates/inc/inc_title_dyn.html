@@ -1,0 +1,5 @@
+{% for title in titles %}
+    {% if request.resolver_match.url_name == title.href %}
+        {{ title.title }}
+    {% endif %}
+{% endfor %}
