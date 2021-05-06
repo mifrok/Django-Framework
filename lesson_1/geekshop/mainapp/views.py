@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import ProductCategory, Product
 
 products = Product.objects.all()[:4]
+categories = ProductCategory.objects.all()
 
 links = [{'href': 'index', 'title': 'Магазин', 'menu': 'домой'},
         {'href': 'products', 'title': 'Каталог', 'menu': 'продукты'},
@@ -10,6 +11,7 @@ links = [{'href': 'index', 'title': 'Магазин', 'menu': 'домой'},
 content = {
     'titles': links,
     'products': products,
+    'categories': categories,
 }
 
 
