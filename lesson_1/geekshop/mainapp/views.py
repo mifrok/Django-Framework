@@ -1,13 +1,17 @@
 from django.shortcuts import render
+from .models import ProductCategory, Product
 
-# title = [{'index': 'Магазин'},
-#          {'products': 'Каталог'},
-#          {'contact': 'Контакты'}]
+products = Product.objects.all()[:4]
+categories = ProductCategory.objects.all()
+
 links = [{'href': 'index', 'title': 'Магазин', 'menu': 'домой'},
         {'href': 'products', 'title': 'Каталог', 'menu': 'продукты'},
         {'href': 'contacts', 'title': 'Контакты', 'menu': 'контакты'}]
+
 content = {
     'titles': links,
+    'products': products,
+    'categories': categories,
 }
 
 

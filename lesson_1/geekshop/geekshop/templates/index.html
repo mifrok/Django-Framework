@@ -44,15 +44,18 @@
 					</div>
 				</a>
 			</div>
+			{% for product in products %}
 			<div class="block">
-				<a href="#"><img src="/static/img/product-2.jpg" alt="">
+				<a href="#"><img src="/media/{{ product.image }}" alt="{{ product.short_desc }}">
 					<div class="text">
 						<img src="/static/img/icon-hover.png" alt="">
-						<h4>Стул повышенного качества</h4>
-						<p>Не оторваться. </p>
+						<h3>{{ product.category.name }}</h3>
+						<h4>{{ product.name }}</h4>
+						<p>{{ product.description }}</p>
 					</div>
 				</a>
 			</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}
