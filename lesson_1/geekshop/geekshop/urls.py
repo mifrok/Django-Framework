@@ -22,10 +22,11 @@ from mainapp import urls
 
 urlpatterns = [
     path('', mainapp.main, name='index'),
-    path('products/', include(urls, namespace='products'), name='products'),
+    path('products/', include(urls, namespace='products')),
     path('contact/', mainapp.contact, name='contacts'),
     path('admin/', admin.site.urls),
     path('auth/', include('authapp.urls', namespace='auth')),
+    path('basket/', include('basketapp.urls', namespace='basket')),
 ]
 
 if settings.DEBUG:
