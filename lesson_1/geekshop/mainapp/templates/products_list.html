@@ -2,17 +2,15 @@
 {% load static %}
 
 {% block content %}
-{% block menu %}
-  <div class="hero-white">
-    <div class="header clearfix">
-      {% include 'inc/inc_menu.html' %}
+	<div class="hero-white">
+		<div class="header clearfix">
+			<a href="index.html" class="logo"></a>
+              {% block menu %}
+                {% include 'inc/inc_menu.html' %}
+              {% endblock %}
+        </div>
     </div>
-  </div>
-{% endblock %}
-  <div class="details">
-    <div class="links clearfix">
       {% include 'inc/inc_categories_menu.html' %}
-    </div>
 
     <div class="products_list">
       <div class="title clearfix">
