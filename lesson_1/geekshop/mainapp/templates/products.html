@@ -21,14 +21,8 @@
 
 	<div class="details">
 		<div class="links clearfix">
-			<ul class="links-menu">
-				{% for category in categories %}
-				<li><a href="#">{{ category.name }}</a></li>
-				<! -- class="active" добавить логику -->
-				{% endfor %}
-			</ul>
+			{% include 'inc/inc_categories_menu.html' %}
 		</div>
-
 		<div class="details-products">
 			<div class="details-slider">
 				<div class="slider-product">

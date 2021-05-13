@@ -1,17 +1,19 @@
 from django.shortcuts import render
 from .models import ProductCategory, Product
+from django.shortcuts import get_object_or_404
 
 products = Product.objects.all()[:4]
 categories = ProductCategory.objects.all()
 
 links = [{'href': 'index', 'title': 'Магазин', 'menu': 'домой'},
-        {'href': 'products', 'title': 'Каталог', 'menu': 'продукты'},
-        {'href': 'contacts', 'title': 'Контакты', 'menu': 'контакты'}]
+         {'href': 'products:index', 'title': 'Каталог', 'menu': 'продукты'},
+         {'href': 'contacts', 'title': 'Контакты', 'menu': 'контакты'}]
 
 content = {
     'titles': links,
     'products': products,
     'categories': categories,
+    'old_links': links,
 }
 
 
@@ -19,7 +21,36 @@ def main(request):
     return render(request, 'index.html', context=content)
 
 
-def products(request):
+def products(request, pk=None):
+    title = 'продукты'
+    links_menu = ProductCategory.objects.all()
+
+    if pk is not None:
+        if pk == 0:
+            products = Product.objects.all().order_by('price')
+            category = {'name': 'все'}
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.objects.filter(category__pk=pk).order_by('price')
+
+        content = {
+            'title': title,
+            'links_menu': links_menu,
+            'category': category,
+            'products': products,
+            'old_links': links,
+        }
+
+        return render(request, 'products_list.html', content)
+
+    same_products = Product.objects.all()[3:5]
+
+    content = {
+        'title': title,
+        'links_menu': links_menu,
+        'same_products': same_products,
+        'old_links': links,
+    }
     return render(request, 'products.html', context=content)
 
 
