@@ -5,6 +5,7 @@ from basketapp.models import Basket
 
 products = Product.objects.all()[:4]
 categories = ProductCategory.objects.all()
+basket = Basket.objects.all()
 
 links = [{'href': 'index', 'title': 'Магазин', 'menu': 'домой'},
          {'href': 'products:index', 'title': 'Каталог', 'menu': 'продукты'},
@@ -14,6 +15,7 @@ content = {
     'titles': links,
     'products': products,
     'categories': categories,
+    'basket': basket
 }
 
 
