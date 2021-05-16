@@ -907,8 +907,8 @@ td:first-child {
 	height: 570px;
 }
 .slider-control {
-	width: 420px;
-	height: 70px;
+	width: 1000px;
+	height: 470px;
 	margin: 11px auto 0px;
 	padding-left: 150px
 }
@@ -917,7 +917,7 @@ td:first-child {
 	width: 70px;
 	position: relative;
 	float: left;
-	margin-right: 10px;
+	margin-right: 250px;
 }
 .slider-control a .text {
 	display: none;
