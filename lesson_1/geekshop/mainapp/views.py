@@ -88,4 +88,17 @@ def products(request, pk=None):
 def contact(request):
     return render(request, 'contact.html', context=content)
 
+
+def product(request, pk):
+    title = 'продукты'
+
+    content = {
+        'title': title,
+        'links_menu': ProductCategory.objects.all(),
+        'product': get_object_or_404(Product, pk=pk),
+        'basket': get_basket(request.user),
+    }
+
+    return render(request, 'product.html', content)
+
 # Create your views here.
