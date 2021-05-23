@@ -4,11 +4,11 @@
 {% block content %}
     <div class="users_list">
         <button class="new_user">
-            <a href={% url 'admin:user_create' %}>
+            <a href={% url 'admin_staff:user_create' %}>
                 новый пользователь
             </a>
         </button>
-        {% for object in objects %}
+        {% for object in object_list %}
             <div
                     class="user_record {% if not object.is_active %}not_active{% endif %}">
                 <img
@@ -21,12 +21,12 @@
                         пользователь
                     {% endif %}
                     <button>
-                        <a href={% url 'admin:user_update' object.pk %}>
+                        <a href={% url 'admin_staff:user_update' object.pk %}>
                             редактировать
                         </a>
                     </button>
                     <button>
-                        <a href={% url 'admin:user_delete' object.pk %}>
+                        <a href={% url 'admin_staff:user_delete' object.pk %}>
                             удалить
                         </a>
                     </button>
